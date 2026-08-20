@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumen Peptídeos & Biotecnologia | Vitrine 3D</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- FAIXA DE FRETE GRÁTIS -->
+  <div class="top-banner">
+    <span>🚚 <strong>FRETE GRÁTIS</strong> para todo o Brasil em pedidos acima de R$ 299 | Cupom: <strong>LUMEN3D</strong></span>
+  </div>
+
+  <header>
+    <h1 class="brand-title">Lumen Peptídeos & Biotecnologia</h1>
+    <p class="brand-subtitle">Visualização 3D interativa de ampolas de manipulação magistral de alta pureza.</p>
+    
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">Todos</button>
+      <button class="filter-btn" onclick="filterCategory('longevidade', this)">Longevidade</button>
+      <button class="filter-btn" onclick="filterCategory('peptideos', this)">Peptídeos</button>
+      <button class="filter-btn" onclick="filterCategory('emagrecimento', this)">Metabolismo</button>
+      <button class="filter-btn" onclick="filterCategory('regeneracao', this)">Regeneração</button>
+    </div>
+  </header>
+
+  <!-- GRID DE PRODUTOS -->
+  <main class="product-grid" id="productGrid">
+    
+    <!-- 1. NAD+ 1000mg -->
+    <article class="product-card" data-category="longevidade">
+      <div class="product-tag">Alta Pureza</div>
+      <div class="canvas-container" id="canvas-nad">
+        <div class="hotspot-label">
+          <span class="hotspot-dot"></span>
+          <span>Rótulo: Nicotinamida Adenina Dinucleotídeo</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="product-category">Energia & Longevidade</span>
+        <h2 class="product-name">NAD+ 1000mg</h2>
+        <p class="product-desc">Suporte à energia celular, longevidade, reparo do DNA e clareza mental.</p>
+        <ul class="product-bullets">
+          <li>Aumenta produção de energia e combate fadiga</li>
+          <li>Apoia o reparo de DNA e saúde celular</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-info">
+            <span class="price-tag">R$ 480</span>
+            <span class="weight-tag">Peso Líq.: 1000mg</span>
+          </div>
+          <div class="color-picker">
+            <span class="color-opt active" style="background:#38bdf8;" onclick="changeColor('nad', 0x38bdf8, this)"></span>
+            <span class="color-opt" style="background:#6366f1;" onclick="changeColor('nad', 0x6366f1, this)"></span>
+          </div>
+        </div>
+        <button class="btn-buy">Solicitar Manipulação</button>
+      </div>
+    </article>
+
+    <!-- 2. SS-31 50mg -->
+    <article class="product-card" data-category="peptideos">
+      <div class="product-tag">Mitocondrial</div>
+      <div class="canvas-container" id="canvas-ss31">
+        <div class="hotspot-label">
+          <span class="hotspot-dot"></span>
+          <span>Rótulo: Peptídeo Mitocondrial</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="product-category">Proteção Celular</span>
+        <h2 class="product-name">SS-31 50mg</h2>
+        <p class="product-desc">Potente ação protetora e regenerativa mitocondrial com ação antioxidante.</p>
+        <ul class="product-bullets">
+          <li>Preserva a função mitocondrial e energia</li>
+          <li>Melhora desempenho físico e saúde cardiovascular</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-info">
+            <span class="price-tag">R$ 520</span>
+            <span class="weight-tag">Peso Líq.: 80mg</span>
+          </div>
+          <div class="color-picker">
+            <span class="color-opt active" style="background:#0284c7;" onclick="changeColor('ss31', 0x0284c7, this)"></span>
+            <span class="color-opt" style="background:#10b981;" onclick="changeColor('ss31', 0x10b981, this)"></span>
+          </div>
+        </div>
+        <button class="btn-buy">Solicitar Manipulação</button>
+      </div>
+    </article>
+
+    <!-- 3. RETATRUTIDA 40mg -->
+    <article class="product-card" data-category="emagrecimento">
+      <div class="product-tag">Multiagonista</div>
+      <div class="canvas-container" id="canvas-retatrutida">
+        <div class="hotspot-label">
+          <span class="hotspot-dot"></span>
+          <span>Rótulo: Triplo Agonista Receptor</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="product-category">Controle de Peso</span>
+        <h2 class="product-name">Retatrutida 40mg</h2>
+        <p class="product-desc">Ação potente no controle de peso, otimização metabólica e glicêmica.</p>
+        <ul class="product-bullets">
+          <li>Promove redução eficaz do apetite e saciedade</li>
+          <li>Auxilia na regulação da glicose e insulina</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-info">
+            <span class="price-tag">R$ 890</span>
+            <span class="weight-tag">Peso Líq.: 40mg</span>
+          </div>
+          <div class="color-picker">
+            <span class="color-opt active" style="background:#2563eb;" onclick="changeColor('retatrutida', 0x2563eb, this)"></span>
+            <span class="color-opt" style="background:#f59e0b;" onclick="changeColor('retatrutida', 0xf59e0b, this)"></span>
+          </div>
+        </div>
+        <button class="btn-buy">Solicitar Manipulação</button>
+      </div>
+    </article>
+
+    <!-- 4. KLOW (Blend de 4 Peptídeos) -->
+    <article class="product-card" data-category="regeneracao">
+      <div class="product-tag">Blend Exclusivo</div>
+      <div class="canvas-container" id="canvas-klow">
+        <div class="hotspot-label">
+          <span class="hotspot-dot"></span>
+          <span>Rótulo: GHK-Cu + TB500 + BPC157 + KPV</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="product-category">Regeneração & Cicatrização</span>
+        <h2 class="product-name">KLOW Peptides Blend</h2>
+        <p class="product-desc">Mistura avançada desenvolvida para cicatrização, tecidos e anti-inflamação.</p>
+        <ul class="product-bullets">
+          <li>Recuperação pós-cirúrgica e lesões esportivas</li>
+          <li>Ação anti-inflamatória e imunológica integrada</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-info">
+            <span class="price-tag">R$ 640</span>
+            <span class="weight-tag">Peso Líq.: 80mg</span>
+          </div>
+          <div class="color-picker">
+            <span class="color-opt active" style="background:#06b6d4;" onclick="changeColor('klow', 0x06b6d4, this)"></span>
+            <span class="color-opt" style="background:#ec4899;" onclick="changeColor('klow', 0xec4899, this)"></span>
+          </div>
+        </div>
+        <button class="btn-buy">Solicitar Manipulação</button>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- SEÇÃO DE AVALIAÇÕES -->
+  <section class="reviews-section">
+    <div class="reviews-container">
+      <h2 class="section-title">Avaliações e Relatórios Práticos</h2>
+      <p class="section-subtitle">Feedback de profissionais e clientes com prescrição magistral.</p>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"O frasco de KLOW acelerou minha recuperação pós-lesão de forma impressionante. A qualidade da vedação e da embalagem é impecável."</p>
+          <div class="review-author">
+            <div class="author-avatar">DR</div>
+            <div>
+              <strong>Dr. Renato Silva</strong>
+              <span>Médico do Esporte</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Visualizar o modelo 3D da ampola antes do pedido tirou todas as dúvidas da dosagem. O NAD+ me devolveu o pique e clareza mental."</p>
+          <div class="review-author">
+            <div class="author-avatar">CP</div>
+            <div>
+              <strong>Camila Prado</strong>
+              <span>Cliente Verificada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Manipulação magistral de padrão internacional. A Retatrutida chegou perfeitamente refrigerada e com laudo de pureza."</p>
+          <div class="review-author">
+            <div class="author-avatar">GF</div>
+            <div>
+              <strong>Gabriel Fonseca</strong>
+              <span>Atleta de Alta Performance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ COMPLETO -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Lumen Peptídeos</h3>
+        <p>Laboratório de manipulação magistral focado em compostos bioativos, peptídeos de alta pureza e soluções em longevidade.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Linhas</h4>
+        <ul>
+          <li><a href="#">Longevidade & NAD+</a></li>
+          <li><a href="#">Proteção Mitocondrial</a></li>
+          <li><a href="#">Modulação Metabólica</a></li>
+          <li><a href="#">Blends Regenerativos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atendimento & Laudos</h4>
+        <ul>
+          <li>Email: contato@lumenpeptides.com</li>
+          <li>WhatsApp: (11) 98765-4321</li>
+          <li>Uso Restrito | Sob Prescrição Magistral</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lumen Peptídeos Magistral. Todos os direitos reservados. | Imagens e Modelos 3D Ilustrativos.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
